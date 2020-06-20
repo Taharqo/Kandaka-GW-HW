@@ -1,0 +1,30 @@
+body
+{
+    background-color: lightgray;
+}
+
+.box
+{
+    padding: 40px;
+    margin: 10px;
+    background-color: #fff;
+} 
+
+.navbar-nav
+{
+    flex-direction: row;
+}
+
+#main-summary
+{
+    float: left;
+    width: 70%;
+    background-color: #efeee7;
+}
+
+#summary-image
+{
+    float: left;
+    width: 200px;
+    padding: 0px;
+}

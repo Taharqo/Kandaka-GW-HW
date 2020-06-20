@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang = 'en-us'>
+    <head>
+        <meta charset="UTF-8">
+            <title>CSS stylesheet with Relative Paths</title>
+            <link rel='stylesheet' type="text/css" href="style.css">
+            <style>
+                .container {background-color: darkgrey;
+                            margin: 0;}
+                #main-bio {background-color: cadetblue;}
+                #contact-info {background-color:darkgoldenrod;}
+                #bio-image {}
+                body {background-color: #efeee7; 
+                      font-family: Georgia, 'Times New Roman', Times, serif;
+                      color: #333333;}
+                header {background-color: #333333;}
+                h1 {color: #eee;
+                    font-size: 28px;}
+                h2 {font-size: 24px;}
+            </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>Yasir's 101 Bio</h1>
+        </header>
+        <main class='container'>
+            <section id='main-bio'>
+                <section id='figure'>
+                    <h2 id='bio-name'>Yasir</h2>
+                    <img id='bio-image' src='' alt='Yasir photo'>
+                </section>
+                <p>
+                    my name is yasir im learning data eng
+                </p>
+            </section>
+            <aside id='contact-info'>
+                <h2>Yasir's Contact info</h2>
+                <ul>
+                    <li><strong>Email:</strong><a href='#'>oyasir@gmail.com</a></li>
+                </ul>
+            </aside>
+
+        </main>
+    </body>
+</html>
