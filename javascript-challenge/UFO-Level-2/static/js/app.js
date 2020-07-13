@@ -1,50 +1,62 @@
-var tablebody = d3.select('#main-table')
-var button = d3.select('#filter-btn');
-button.on('click', runtablefilter);
+
+var tbody = d3.select('#main-table')
+
+var filterbutton = d3.select('#filter-btn');
+filterbutton.on('click', runtablefilter);
+
+var clearbutton = d3.select('#clear-filter-btn')
+clearbutton.on('click', runclearfilter)
+
+function runclearfilter(){
+    tbody.html("");
+    data.forEach(buildtable)
+    document.getElementById("my-form").reset();
+    filtereddata = []
+   }
 
 function buildtable(tableinfo){
-    var row = tablebody.append('tr')
+    var row = tbody.append('tr')
     var sightingvalues = Object.values(tableinfo)
     sightingvalues.forEach(sightingvalue => {
        var cell = row.append('td')
        cell.text(sightingvalue)
    }); 
+   
 };
 
 function runtablefilter(){
-    tablebody.html("");
+    tbody.html("");
+    var filtereddata = data
 
     var dateElement = d3.select('#datetime')
-    var dateValue = dateElement.property('value')
+    var dateValue = dateElement.property('value')  
     if (dateValue !="") {
-        data = data.filter(sighting => sighting.datetime == dateValue)
+        filtereddata = filtereddata.filter(sighting => sighting.datetime == dateValue)
     }
 
     var cityElement = d3.select('#city')
     var cityValue = cityElement.property('value')
     if (cityValue !=""){
-        data = data.filter(sighting => sighting.city == cityValue)
+        filtereddata = filtereddata.filter(sighting => sighting.city == cityValue)
     }
 
     var stateElement = d3.select('#state')
     var stateValue = stateElement.property('value')
     if (stateValue != ""){
-        data = data.filter(sighting => sighting.state == stateValue)
+        filtereddata = filtereddata.filter(sighting => sighting.state == stateValue)
     }
 
     var shapeElement = d3.select('#shape')
     var shapeValue = shapeElement.property('value')
     if (shapeValue != ""){
-        data = data.filter(sighting => sighting.shape == shapeValue)
+        filtereddata = filtereddata.filter(sighting => sighting.shape == shapeValue)
     }
     
-    data.forEach(buildtable)
-
+    filtereddata.forEach(buildtable)
+   console.log(`after filter func: ${filtereddata.length}`)//debug
 };
 
+
 data.forEach(sightingobjects => {
-    buildtable(sightingobjects)
+  buildtable(sightingobjects)
 });
-
-
-
