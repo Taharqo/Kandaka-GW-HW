@@ -1,11 +1,11 @@
 #SalesForce api
-sf_username = 'oyasir@gmail.com'
-sf_password = 'Summer16!'
-sf_security_token = 'zM6M31Rsvl2pzpfUuUbAGrJ1r'
+sf_username = 
+sf_password =
+sf_security_token = 
 
 #MySql 
-remote_db_endpoint = 'database-1.czlbzbpdgtgg.us-east-1.rds.amazonaws.com'
-remote_db_port = '3306'
-remote_db_user = 'admin'
-remote_db_pwd = 'Summer16!'
-remote_db_name = 'gwsis'
+remote_db_endpoint = 
+remote_db_por
+remote_db_user = 
+remote_db_pwd = 
+remote_db_name = 
