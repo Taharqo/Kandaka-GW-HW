@@ -6,7 +6,7 @@ filterbutton.on('click', runtablefilter);
 var clearbutton = d3.select('#clear-filter-btn');
 clearbutton.on('click', runclearfilter);
 
-//build array of filter words pulled from HTML code. 
+//1 - Array generator: array holds ids from html filter fields  
 htmlfilterIDs = [];
 var formControl = d3.selectAll('.form-control');
 var filterLength = formControl._groups[0].length;
@@ -15,9 +15,9 @@ for(var i=0; i < filterLength; i++ ){
     htmlfilterIDs.push(filterid)
 };
 
-//Generate a table:
-//table is unfilterd if the function is passed the data array
-//table is filtered if function is called from runtablefilter() and passed the filtereddata array
+//2 - Table generator:
+//2.1 - table is unfilterd if the function is passed the data array from the file data.js
+//2.2 - table is filtered if function is called from runtablefilter(3) and passed the filtereddata array 
 function buildtable(tableinfo){
     var row = tbody.append('tr')
     var sightingvalues = Object.values(tableinfo)
@@ -27,7 +27,7 @@ function buildtable(tableinfo){
    });
 };
 
-//Generate a filtered the filtereddata array based on filter values from the webpage
+//3 - Filtered array generator: array objects filtered using array from (1)  
 function runtablefilter(){
     tbody.html("");
     var filtereddata = data
@@ -43,7 +43,7 @@ function runtablefilter(){
     filtereddata.forEach(buildtable)
 }; 
 
-//Resets the table by clearing the filters and regenerating the complete table using the data array
+//4 - Tabel reset: clear all filter values and regenerate the table using the data array from the file data.js
 function runclearfilter(){
     tbody.html("");
     data.forEach(buildtable)
@@ -51,4 +51,5 @@ function runclearfilter(){
     filtereddata = []
 };
 
+//5 - unfiltered table Generator. call to build table function (2) using the data array from the file data.js
 data.forEach(buildtable)
